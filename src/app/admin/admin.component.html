@@ -1,0 +1,197 @@
+<app-header></app-header>
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner text-center">
+                    <div class="breadcrumb_iner_item">
+                        <h2>ADMIN DASHBOARD</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="food_menu gray_bg">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="section_tittle">
+                    <p></p>
+
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="nav nav-tabs food_menu_nav" id="myTab" role="tablist">
+                    <a class="active" id="Special-tab" data-toggle="tab" href="#Special" role="tab"
+                        aria-controls="Special" aria-selected="false">Themes <img src="assets/img/icon/play.svg"
+                            alt="play"></a>
+                    <a id="Breakfast-tab" data-toggle="tab" href="#Breakfast" role="tab" aria-controls="Breakfast"
+                        aria-selected="false">Choices <img src="assets/img/icon/play.svg" alt="play"></a>
+                    <a id="Launch-tab" data-toggle="tab" href="#Launch" role="tab" aria-controls="Launch"
+                        aria-selected="false">Menu <img src="assets/img/icon/play.svg" alt="play"></a>
+                    <a id="Dinner-tab" data-toggle="tab" href="#Dinner" role="tab" aria-controls="Dinner"
+                        aria-selected="false">team <img src="assets/img/icon/play.svg" alt="play"> </a>
+                    <a id="Sneaks-tab" data-toggle="tab" href="#Sneaks" role="tab" aria-controls="Sneaks"
+                        aria-selected="false">Users <img src="assets/img/icon/play.svg" alt="play"></a>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active single-member" id="Special" role="tabpanel"
+                        aria-labelledby="Special-tab">
+                        <div class="row">
+                            <div *ngFor='let t of theme' class="col-sm-4 col-lg-4">
+                                <div class="">
+                                    <button class="btn btn-info" (click)='displayTheme(t._id)'>Display</button>
+                                    <button class="btn btn-success" (click)='editTheme(t._id)'>Edit</button>
+                                    <button class="btn btn-danger" (click)='deleteTheme(t._id)'>Delete</button>
+                                </div>
+                                <app-our-theme-child [x]='t'></app-our-theme-child>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade single-member" id="Breakfast" role="tabpanel"
+                        aria-labelledby="Breakfast-tab">
+                        <div class="row">
+                            <div *ngFor='let t of option' class="col-sm-4 col-lg-4">
+                                <button class="btn btn-info" (click)='displayOption(t._id)'>Display</button>
+                                <button class="btn btn-success" (click)='editOption(t._id)'>Edit</button>
+                                <button class="btn btn-danger" (click)='deleteOption(t._id)'>Delete</button>
+                                <app-our-choise-desert [x]='t'></app-our-choise-desert>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade single-member" id="Launch" role="tabpanel" aria-labelledby="Launch-tab">
+                        <div class="row">
+                            <section class="food_menu gray_bg">
+                                <div class="container">
+                                    <div class="row justify-content-between">
+                                        <div class="col-lg-5">
+                                            <div class="section_tittle">
+                                                <p></p>
+                                                <h2>Choices</h2>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="nav nav-tabs food_menu_nav" id="myTab" role="tablist">
+                                                <a class="active" id="Special-tab" data-toggle="tab" href="#" role="tab"
+                                                    aria-controls="Special" aria-selected="false">Places <img
+                                                        src="assets/img/icon/play.svg" alt="play"></a>
+                                                <a id="Breakfast-tab" data-toggle="tab" href="#" role="tab"
+                                                    aria-controls="Breakfast" aria-selected="false">Restaurant <img
+                                                        src="assets/img/icon/play.svg" alt="play"></a>
+                                                <a id="Launch-tab" data-toggle="tab" href="#Launch" role="tab"
+                                                    aria-controls="Launch" aria-selected="false">Store <img
+                                                        src="assets/img/icon/play.svg" alt="play"></a>
+                                                <a id="Dinner-tab" data-toggle="tab" href="#Dinner" role="tab"
+                                                    aria-controls="Dinner" aria-selected="false">Not yet <img
+                                                        src="assets/img/icon/play.svg" alt="play"> </a>
+                                                <a id="Sneaks-tab" data-toggle="tab" href="#Sneaks" role="tab"
+                                                    aria-controls="Sneaks" aria-selected="false">Not yet <img
+                                                        src="assets/img/icon/play.svg" alt="play"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div *ngFor='let p of menus' class="col-sm-6 col-lg-6">
+                                                    <button class="btn btn-info"
+                                                        (click)='displayMenu(p._id)'>Display</button>
+                                                    <button class="btn btn-success"
+                                                        (click)='editMenu(p._id)'>Edit</button>
+                                                    <button class="btn btn-danger"
+                                                        (click)='deleteMenu(p._id)'>Delete</button>
+                                                    <app-our-menu-child-desert-choise [x]='p'>
+                                                    </app-our-menu-child-desert-choise>
+                                                </div>
+                                                <div class="row">
+                                                    <div *ngFor='let p of places' class="col-sm-6 col-lg-6">
+                                                        <button class="btn btn-info"
+                                                            (click)='display(t._id)'>Display</button>
+                                                        <button class="btn btn-success"
+                                                            (click)='edit(t._id)'>Edit</button>
+                                                        <button class="btn btn-danger"
+                                                            (click)='deleteDesertOption(t._id)'>Delete</button>
+                                                        <app-our-menu-child-desert-choise [x]='p'>
+                                                        </app-our-menu-child-desert-choise>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div *ngFor='let p of places' class="col-sm-6 col-lg-6">
+                                                        <button class="btn btn-info"
+                                                            (click)='display(t._id)'>Display</button>
+                                                        <button class="btn btn-success"
+                                                            (click)='edit(t._id)'>Edit</button>
+                                                        <button class="btn btn-danger"
+                                                            (click)='deleteDesertOption(t._id)'>Delete</button>
+                                                        <app-our-menu-child-desert-choise [x]='p'>
+                                                        </app-our-menu-child-desert-choise>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div *ngFor='let p of places' class="col-sm-6 col-lg-6">
+                                                        <app-our-menu-child-desert-choise [x]='p'>
+                                                        </app-our-menu-child-desert-choise>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div *ngFor='let p of places' class="col-sm-6 col-lg-6">
+                                                        <app-our-menu-child-desert-choise [x]='p'>
+                                                        </app-our-menu-child-desert-choise>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade single-member" id="Dinner" role="tabpanel" aria-labelledby="Dinner-tab">
+                        <div class="row">
+                            <div *ngFor='let p of team' class="col-sm-6 col-lg-6">
+                                <button class="btn btn-info" (click)='display(p._id)'>Display</button>
+                                <button class="btn btn-success" (click)='edit(p._id)'>Edit</button>
+                                <button class="btn btn-danger" (click)='deleteTeam(p._id)'>Delete</button>
+                                <app-our-team [x]='p'></app-our-team>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade single-member" id="Sneaks" role="tabpanel" aria-labelledby="Sneaks-tab">
+                        <div class="row">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">id</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">email</th>
+                                        <th scope="col">tel</th>
+                                        <th scope="col">image</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor='let u of users'>
+                                        <td>{{u._id}}</td>
+                                        <td>{{u.firstName}}</td>
+                                        <td>{{u.lastName}}</td>
+                                        <td>{{u.email}}</td>
+                                        <td>{{u.tel}}</td>
+                                        <td><img [src]="u.image" height="50px" width="50px"></td>
+                                        <td>
+                                            <button class="btn btn-info" (click)='displayU(u._id)'>display</button>
+                                            <button class="btn btn-success" (click)='editU(u._id)'>edit</button>
+                                            <button class="btn btn-danger" (click)='deleteU(u._id)'>delete</button>
+
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,80 @@
+<app-header></app-header>
+
+<section class="regervation_part section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+                    <p>SIGN UP</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="">
+                    <form [formGroup]='signupForm'>
+                        <div class="form-row form-group">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" formControlName='firstName' id="inputEmail4"
+                                    placeholder="First Name *">
+                            </div>
+                            <div *ngIf="signupForm.controls['firstName'].invalid && 
+                            (signupForm.controls['firstName'].touched || 
+                            signupForm.controls['firstName'].dirty)">
+
+                                <div *ngIf="signupForm.controls['firstName'].errors.minlength" class="text-danger">
+                                    First name must have at least 3 characters
+                                </div>
+                                <div *ngIf="signupForm.controls['firstName'].errors.required" class="text-danger">
+                                    First name is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" formControlName='lastName' id="inputEmail4"
+                                    placeholder="Last Name *">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" class="form-control" formControlName='email' id="inputEmail4"
+                                    placeholder="email *">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="password" class="form-control" id="inputPassword4" formControlName='pwd'
+                                    placeholder="pwd *">
+                            </div>
+                            <div *ngIf="signupForm.controls['pwd'].invalid && 
+                            (signupForm.controls['pwd'].touched || 
+                            signupForm.controls['pwd'].dirty)">
+                                <div *ngIf="signupForm.controls['pwd'].errors.minlength" class="text-danger">
+                                    Pwd must have at least 8 characters
+                                </div>
+                                <div *ngIf="signupForm.controls['pwd'].errors.required" class="text-danger">
+                                    Pwd is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" formControlName='tel' id="pnone"
+                                    placeholder="Phone number *">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" formControlName='confirmPwd' id="pnone"
+                                    placeholder="Confirm pwd *">
+                            </div>
+                            <div *ngIf="signupForm.controls['confirmPwd'].invalid && 
+                    (signupForm.controls['confirmPwd'].touched || 
+                    signupForm.controls['confirmPwd'].dirty)">
+                                <div *ngIf="signupForm.controls['confirmPwd'].errors.mustMatch"> Must Match
+                                </div>
+                            </div>
+                        </div>
+                        <div class="regerv_btn">
+                            <button type="submit" (click)='signUp(signupForm.value)' class="btn_4">Signup </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ 

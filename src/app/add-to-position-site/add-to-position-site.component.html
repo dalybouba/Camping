@@ -1,0 +1,62 @@
+<app-header></app-header>
+<section class="breadcrumb breadcrumb_bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb_iner text-center">
+          <div class="breadcrumb_iner_item">
+            <h2>ADD TO CHOICE</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="row">
+
+  <div class="col-lg-8">
+    <form #positionForm="ngForm" class="form-contact contact_form" action="contact_process.php" method="post"
+      id="contactForm" novalidate="novalidate" (ngSubmit)='addToPosition()'>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <input [(ngModel)]='position.name' [ngModelOptions]="{standalone: true}" class="form-control" name="subject"
+              id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'"
+              placeholder='Name'>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]='position.location' [ngModelOptions]="{standalone: true}" class="form-control"
+              name="subject" id="subject" type="text" onfocus="this.placeholder = ''"
+              onblur="this.placeholder = 'Enter Subject'" placeholder='Location'>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]='position.discription' [ngModelOptions]="{standalone: true}" class="form-control"
+              name="subject" id="subject" type="text" onfocus="this.placeholder = ''"
+              onblur="this.placeholder = 'Enter Subject'" placeholder='Discription'>
+          </div>
+
+          <div class="form-group">
+            <input [(ngModel)]='position.category' [ngModelOptions]="{standalone: true}" class="form-control"
+              name="subject" id="subject" type="text" onfocus="this.placeholder = ''"
+              onblur="this.placeholder = 'Enter Subject'" placeholder='category'>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]='position.sousCategory' [ngModelOptions]="{standalone: true}" class="form-control"
+              name="subject" id="subject" type="text" onfocus="this.placeholder = ''"
+              onblur="this.placeholder = 'Enter Subject'" placeholder='Sous category'>
+          </div>
+          <button type="button" (click)='filePicker.click()' class="btn btn-success">Sélectionner image</button>
+          <div class="form-group">
+            <input style="visibility: hidden;" type="file" class="form-control" #filePicker
+              (change)='onImageSelected($event)' />
+          </div>
+          <img [src]="imagePreview" height="100px" width="100px">
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <button type="submit" class="button button-contactForm btn_4">ADD TO site arc</button>
+      </div>
+    </form>
+  </div>
+
+</div>

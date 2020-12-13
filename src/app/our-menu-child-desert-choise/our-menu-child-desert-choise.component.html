@@ -1,0 +1,17 @@
+<div class="single_food_item media">
+    <img src="{{x.image}}" height="200px" width="200px" alt="">
+    <div class="media-body align-self-center">
+
+        <h3>{{x.titre}}</h3>
+        <h3>{{x.type}}</h3>
+        <h3>{{x.location}}</h3>
+        
+        <h3>{{x.category}}</h3>
+        <p>{{x.sousCategory}}</p>
+        <h5>{{x.discription}}</h5>
+        <!-- place1 pour les guest house  -->
+        <div *ngIf="x.type==='place1' ||x.type==='resto'">
+        <a  class="btn_3">Reservation <img src="assets/img/icon/left_2.svg" alt=""></a>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<section><app-header></app-header></section>
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner text-center">
+                    <div class="breadcrumb_iner_item">
+                        <h2>Edit Theme</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="site-section">
+    <div class="container-fluid">
+        <div class="row" >
+            <div class="text-center col-lg-6">
+                <form #optionForm="ngForm" (ngSubmit)='editOption()'>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='choise.name'
+                            [ngModelOptions]="{standalone: true}" placeholder="theme name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='choise.discription'
+                            [ngModelOptions]="{standalone: true}" placeholder=" discription">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='choise.category'
+                            [ngModelOptions]="{standalone: true}" placeholder="category">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='choise.sousCategory'
+                            [ngModelOptions]="{standalone: true}" placeholder="sous category">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='choise.image'
+                            [ngModelOptions]="{standalone: true}" placeholder="image">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary py-3 px-5">Edit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

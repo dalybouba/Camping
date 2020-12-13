@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+
+<section class="regervation_part section_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-5">
+        <div class="section_tittle">
+          <p>LogIn</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="">
+          <form #loginForm="ngForm" (ngSubmit)='loginUser()'>
+            <div class="form-row form-group">
+              <div class="form-group col-md-6">
+                <input type="email" class="form-control" [(ngModel)]='login.email' [ngModelOptions]="{standalone: true}"
+                  placeholder="email *">
+              </div>
+              <div class="form-group col-md-6">
+                <input type="password" class="form-control" [(ngModel)]='login.pwd'
+                  [ngModelOptions]="{standalone: true}" placeholder="pwd *">
+              </div>
+            </div>
+            <div class="regerv_btn">
+              <button type="submit" class="btn_4">LogIn</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
