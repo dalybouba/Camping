@@ -1,13 +1,12 @@
-
-    <div class="single_blog_item">
-        <div class="single_blog_img">
-            <img src="{{x.image}}"   height="200px" width="200px"  style="border-radius: 10px;" alt="">
-        </div>
-        <div class="single_blog_text">
-            <h3>{{x.themeName}}</h3>
-            <p>{{x.discription}} </p>
-            <p>{{x.category}} </p>
-            <a  class="btn_3" (click)='goToChoice(x.category)'>Read More <img src="assets/img/icon/left_2.svg" alt=""></a>
-        </div>
+<div class="single_blog_item">
+    <div class="single_blog_img">
+        <a (click)='goToChoice(x.category)'> <img src="{{x.image}}" height="200px" width="200px"
+                style="border-radius: 10px;" alt=""></a>
     </div>
-
+    <div class="single_blog_text">
+        <h3>{{x.themeName}}</h3>
+        <p>{{x.discription}} </p>
+        <p>{{x.category}} </p>
+       
+    </div>
+</div>

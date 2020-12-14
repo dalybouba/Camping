@@ -1,15 +1,16 @@
-<div class="single_blog_item"  >
-    <div class="single_blog_img"  >
-        <img src="{{x.image}}"  height="200px" width="200px" style="border-radius: 10px;"  alt="">
+<div class="single_blog_item">
+    <div class="single_blog_img">
+        <a (click)='goToHistoryMenu(x.category,x.sousCategory,x.location)'> <img src="{{x.image}}" height="200px"
+                width="200px" style="border-radius: 10px;" alt=""></a>
     </div>
-    <div class="single_blog_text" >
+    <div class="single_blog_text">
 
         <h3>{{x.name}}</h3>
         <h3>{{x.location}}</h3>
-    
+
         <h3>{{x.sousCategory}}</h3>
         <p>{{x.description}} </p>
         <p>{{x.category}} </p>
-        <a  class="btn_3" (click)='goToHistoryMenu(x.category,x.sousCategory,x.location)'>Read More <img src="assets/img/icon/left_2.svg" alt=""></a>
+
     </div>
 </div>
