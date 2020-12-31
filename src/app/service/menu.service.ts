@@ -44,7 +44,7 @@ export class MenuService {
 getMenuById(id: string) {
   // /displayMatch/   l'adresse
   //<{match:any}> c'est le retour de back end  
-  return this.httpClient.get<{ menu: any }>(`${this.menuUrl}/displayMenu/${id}`);
+  return this.httpClient.get<{ Menu: any }>(`${this.menuUrl}/displayMenu/${id}`);
 }
 
 editMenu(menu: any) {

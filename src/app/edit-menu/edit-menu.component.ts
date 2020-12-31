@@ -25,7 +25,7 @@ export class EditMenuComponent implements OnInit {
       //on va faire appelle pour le service pour quil nous envoie notre objet identifier par notre id 
       this.menuService.getMenuById(this.id).subscribe(
         data => {
-          this.menu = data.menu;
+          this.menu = data.Menu;
         }
       )
       this.menuForm = this.formBuilder.group({

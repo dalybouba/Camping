@@ -1,3 +1,4 @@
+
 <section>
     <app-header></app-header>
 </section>
@@ -14,6 +15,7 @@
         </div>
     </div>
 </section>
-<div class="text-center">
+<div >
     <app-our-menu-child-desert-choise [x]='menu'></app-our-menu-child-desert-choise>
+    <div><a class="nav-link" *ngIf='connectedUser'>{{connectedUser.firstName }} {{connectedUser.lastName}}</a></div>
 </div>

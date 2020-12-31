@@ -43,7 +43,8 @@ export class UserService {
 
   }
 
-  login(user: any) {
-    return this.httpClient.post<{ user: any }>(`${this.userUrl}/login`, user);
+  login(user:any) {
+    return this.httpClient.post<{message:string, user:any}>
+    (`${this.userUrl}/api/login`, user);
   }
 }

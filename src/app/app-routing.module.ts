@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { OurChoiseComponent } from './our-choise/our-choise.component';
 import { OurMenuComponent } from './our-menu/our-menu.component';
 import { PositionSiteComponent } from './position-site/position-site.component';
+import { ReservationComponent } from './reservation/reservation.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: 'display-option/:id', component: DisplayOptionComponent },
   { path: 'edit-menu/:id', component: EditMenuComponent },
   { path: 'display-menu/:id', component: DisplayMenuComponent },
+  { path: 'reservation/:id', component: ReservationComponent },
 
   { path: 'admin', component: AdminComponent },
   { path: 'position-site', component: PositionSiteComponent },

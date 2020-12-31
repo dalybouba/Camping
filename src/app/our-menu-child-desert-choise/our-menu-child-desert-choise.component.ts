@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-our-menu-child-desert-choise',
@@ -7,9 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class OurMenuChildDesertChoiseComponent implements OnInit {
 @Input() x:any;
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+  goToReservation(id:any){
+this.router.navigate([`reservation/${id}`]);
   }
 
 }

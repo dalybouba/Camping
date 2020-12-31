@@ -19,11 +19,11 @@
                 <form #menuForm="ngForm" (ngSubmit)='editMenu()'>
                     <div class="form-group">
                         <input type="text" class="form-control" [(ngModel)]='menu.titre'
-                            [ngModelOptions]="{standalone: true}" placeholder="theme name">
+                            [ngModelOptions]="{standalone: true}" placeholder="titre">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" [(ngModel)]='menu.type'
-                            [ngModelOptions]="{standalone: true}" placeholder="theme name">
+                            [ngModelOptions]="{standalone: true}" placeholder="type">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" [(ngModel)]='menu.discription'
@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" [(ngModel)]='menu.location'
-                            [ngModelOptions]="{standalone: true}" placeholder="category">
+                            [ngModelOptions]="{standalone: true}" placeholder="location">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" [(ngModel)]='menu.sousCategory'
