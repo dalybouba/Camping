@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
           if (data.message === '2') {         
             localStorage.setItem('connectedUser', JSON.stringify(data.user));
             if (data.user.role === 'admin') {
+
              
               this.router.navigate(['admin']);
               
@@ -33,6 +34,13 @@ export class LoginComponent implements OnInit {
              
               this.router.navigate(['']);
               
+
+              this.router.navigate(['admin']);
+        
+            } else {
+              this.router.navigate(['']);
+        
+
             }
           }
         }
