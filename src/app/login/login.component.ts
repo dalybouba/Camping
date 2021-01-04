@@ -10,7 +10,7 @@ import { UserService } from '../service/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  login:any={};
+  connectedUser: any = {};
   loginForm:FormGroup;
     constructor(private x:FormBuilder,private userService:UserService,private router:Router) { }
   
@@ -20,20 +20,22 @@ export class LoginComponent implements OnInit {
         pwd:[''],
       })
     }
-    loginUser(){
-      console.log('my object',this.login);
-      this.userService.login(this.login).subscribe(
-        data=>{
-          
-         if (data) {
-           localStorage.setItem('connectedUserFname',data.user[0].firstName);
-           localStorage.setItem('connectedUserLname',data.user[0].lastName);
-           location.reload();
-          
-         }
+    loginUser() {
+      this.userService.login(this.connectedUser).subscribe(
+        (data) => {
+          if (data.message === '2') {         
+            localStorage.setItem('connectedUser', JSON.stringify(data.user));
+            if (data.user.role === 'admin') {
+             
+              this.router.navigate(['admin']);
+              
+            } else  if (data.user.role === 'user') {
+             
+              this.router.navigate(['']);
+              
+            }
+          }
         }
       )
-      this.router.navigate(['']);
     }
-
 }

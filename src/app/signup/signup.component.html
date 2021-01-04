@@ -57,7 +57,7 @@
                                     placeholder="Phone number *">
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" formControlName='confirmPwd' id="pnone"
+                                <input type="password" class="form-control" formControlName='confirmPwd' id="pnone"
                                     placeholder="Confirm pwd *">
                             </div>
                             <div *ngIf="signupForm.controls['confirmPwd'].invalid && 
@@ -68,8 +68,9 @@
                             </div>
                         </div>
                         <div class="regerv_btn">
-                            <button type="submit" (click)='signUp(signupForm.value)' class="btn_4">Signup </button>
+                            <button type="submit" (click)='signup(signupForm.value)' class="btn_4">Signup </button>
                         </div>
+                    
                     </form>
                 </div>
             </div>

@@ -11,7 +11,6 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { GuesthouseComponent } from './guesthouse/guesthouse.component';
 
-
 import { OurThemeComponent } from './our-theme/our-theme.component';
 import { OurHistoryComponent } from './our-history/our-history.component';
 import { OurVideoComponent } from './our-video/our-video.component';
@@ -44,6 +43,7 @@ import { DisplayMenuComponent } from './display-menu/display-menu.component';
 import { AddToTeamComponent } from './add-to-team/add-to-team.component';
 import { OurTeamsComponent } from './our-teams/our-teams.component';
 import { SearchComponent } from './search/search.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +99,8 @@ import { SearchComponent } from './search/search.component';
     OurTeamsComponent,
    
     SearchComponent,
+   
+    ReservationComponent,
    
   ],
   imports: [

@@ -8,6 +8,7 @@ const userSchema=mongoose.Schema({
     email:String,
     pwd:String,
     tel:String,
+    role:String,
     image:String   // attribute for image 
 });
 // 'Match' c'est le nom du model dans la DB qui creé automatiquement une collection nommée "matches" 

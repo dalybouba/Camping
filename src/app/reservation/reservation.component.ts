@@ -3,12 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { MenuService } from '../service/menu.service';
 
 @Component({
-  selector: 'app-display-menu',
-  templateUrl: './display-menu.component.html',
-  styleUrls: ['./display-menu.component.css']
+  selector: 'app-reservation',
+  templateUrl: './reservation.component.html',
+  styleUrls: ['./reservation.component.css']
 })
-export class DisplayMenuComponent implements OnInit {
-
+export class ReservationComponent implements OnInit {
+  actualDate: Date;
+  connectedUser:any;
   menu:any={};
   id:any;
     constructor(private activatedRoute:ActivatedRoute, private menuService:MenuService) { }
@@ -20,7 +21,10 @@ export class DisplayMenuComponent implements OnInit {
           this.menu=data.Menu ;
         }
   
-      )
+      );
+      this.actualDate = new Date();
+      this.connectedUser = JSON.parse(localStorage.getItem('connectedUser'));
+      console.log('connected user', this.connectedUser);
     }
 
 }

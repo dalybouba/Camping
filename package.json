@@ -21,9 +21,10 @@
     "@angular/router": "~10.1.6",
     "@angular/youtube-player": "^11.0.2",
     "angular-in-memory-web-api": "^0.11.0",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.19",
+    "mongoose": "^5.11.9",
     "multer": "^1.4.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
@@ -52,5 +53,13 @@
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.",
   "main": "server.js",
   "author": "daly",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalybouba/Camping.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dalybouba/Camping/issues"
+  },
+  "homepage": "https://github.com/dalybouba/Camping#readme"
 }

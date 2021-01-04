@@ -45,7 +45,7 @@ resto:any = [];
             console.log('resto', this.resto);
             
           } else 
-          if (this.menues[i].type === 'place')   {
+          if (this.menues[i].type === 'place' ||'place1')   {
            this.places.push(this.menues[i]);
            console.log('here my ',this.places);
            

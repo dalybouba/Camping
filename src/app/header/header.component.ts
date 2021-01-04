@@ -8,12 +8,18 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  firstName:string;
-  lastName:string;
-  constructor(private router:Router) { }
+ 
+  actualDate: Date;
+  connectedUser:any;
+  constructor(private router: Router) { }
+
   ngOnInit() {
-    this.firstName = localStorage.getItem('connectedUserFname');
-    this.lastName = localStorage.getItem('connectedUserLname');
+    this.actualDate = new Date();
+    this.connectedUser = JSON.parse(localStorage.getItem('connectedUser'));
+    console.log('connected user', this.connectedUser);
+    this.connectedUser = JSON.parse(localStorage.getItem('connectedUser'));
+    console.log('connected user', this.connectedUser);
+    
   }
   goToLogin() {
     this.router.navigate(['login']);
@@ -24,8 +30,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(){
-    localStorage.removeItem('connectedUserFname');
-    localStorage.removeItem('connectedUserLname');
+    localStorage.removeItem('connectedUser');
     location.reload();
   }
 }

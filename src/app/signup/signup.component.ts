@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../service/user.service';
+import { MustMatch } from '../validator/comparePwd';
 
 @Component({
   selector: 'app-signup',
@@ -13,27 +14,36 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService,
-    private router: Router
-  ) { }
+    private userService:UserService,
+    private router:Router
+    ) { }
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
       firstName: ['', [Validators.minLength(5), Validators.required]],
-      lastName: ['', Validators.maxLength(7)],
-      email: [''],
-      pwd: ['', [Validators.required, Validators.minLength(8)]],
+      lastName: ['', Validators.minLength(4)],
+      email: ['', [Validators.email, Validators.required]],
+      pwd: ['', [Validators.minLength(8), Validators.maxLength(12)]],
       confirmPwd: [''],
       tel: ['']
-    } ,
-    )
+    }, 
+      {
+        validator: MustMatch('pwd','confirmPwd')
+      }
+      );
   }
 
-  signUp(obj: any) {
-    console.log('This is my user', obj);
-    this.userService.addUser(obj).subscribe(
+  signup(user:any) {   
+    let secondPart = user.email.substring(user.email.indexOf("@"),
+    user.email.length); 
+    user.role =  (secondPart === '@admin.com')  ? 'admin' : 'user'; 
+    //  if (secondPart === '@admin.com')   {
+    //    user.role = 'admin';
+    //  } else {
+    //    user.role = 'user';
+    //  }   
+    this.userService.signup(user).subscribe(
       () => {
-        console.log('User added successfully');
         this.router.navigate(['']);
       }
     )

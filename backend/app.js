@@ -5,6 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 // import de notre module multter npm i -- save multer
 const multer = require('multer');
+const bcrypt = require('bcrypt');
 // le path qui me doonne l'accer pour manipuler les dossier dans le serveur 
 const path = require('path');
 app.use(bodyParser.json());
@@ -479,6 +480,24 @@ app.get('/allUsers', (req, res) => {
 
 });
 // add user ou signup
+app.post("/api/signup", (req, res) => {
+  bcrypt.hash(req.body.pwd, 10).then((cryptedPwd) => {
+    const user = new User({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      pwd: cryptedPwd,
+      tel: req.body.tel,
+      role: req.body.role,
+    });
+    user.save().then((err) => {
+      console.log('result',err);
+        res.status(200).json({
+          message: "Added successfully",
+        });
+    });
+  });
+});
 app.post('/addUser', (req, res) => {
     // console.log('here in adding', req.body);
     // //
@@ -570,23 +589,36 @@ app.put('/editUser/:id', (req, res) => {
 
 
 // login
-app.post('/login', (req, res) => {
-    console.log('here in login');
-    console.log('req body', req.body);
-
-    User.find({ email: req.body.email, pwd: req.body.pwd }).then(
-        data => {
-            console.log('login data', data);
-            if (data) {
-                res.status(200).json({
-                    user: data
-                })
-            }
-
+app.post("/api/login", (req, res) => {
+    User.findOne({ email: req.body.email })
+      .then((data) => {
+        console.log("data", data);
+        if (!data) {
+          res.status(200).json({
+            message: "0",
+          });
         }
-
-    );
-})
+        return bcrypt.compare(req.body.pwd, data.pwd);
+      })
+      .then((result) => {
+        if (!result) {
+          res.status(200).json({
+            message: "1",
+          });
+        }
+        User.findOne({ email: req.body.email }).then((findedUser) => {
+          const userToSend = {
+            role: findedUser.role,
+            firstName: findedUser.firstName,
+            lastName: findedUser.lastName,
+          };
+          res.status(200).json({
+            message: "2",
+            user: userToSend,
+          });
+        });
+      });
+  });
 
 // debut position
 app.get('/allPositions', (req, res) => {

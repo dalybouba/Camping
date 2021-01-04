@@ -16,11 +16,11 @@
           <form #loginForm="ngForm" (ngSubmit)='loginUser()'>
             <div class="form-row form-group">
               <div class="form-group col-md-6">
-                <input type="email" class="form-control" [(ngModel)]='login.email' [ngModelOptions]="{standalone: true}"
+                <input type="email" class="form-control" [(ngModel)]='connectedUser.email' [ngModelOptions]="{standalone: true}"
                   placeholder="email *">
               </div>
               <div class="form-group col-md-6">
-                <input type="password" class="form-control" [(ngModel)]='login.pwd'
+                <input type="password" class="form-control" [(ngModel)]='connectedUser.pwd'
                   [ngModelOptions]="{standalone: true}" placeholder="pwd *">
               </div>
             </div>
